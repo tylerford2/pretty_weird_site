@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://prettyweirdapparel.com/custom.html">
 <meta property="og:title" content="Custom Orders | Pretty Weird Apparel Co.">
 <meta property="og:description" content="Send your art, get a quote, and we'll print it fresh using DTF transfer.">
-<meta property="og:image" content="https://prettyweirdapparel.com/assets/images/logo-sunburst.png">
+<meta property="og:image" content="https://prettyweirdapparel.com/assets/images/og-banner.jpg">
 <meta property="og:url" content="https://prettyweirdapparel.com/custom.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -16,6 +16,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon-192.png">
 <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -42,8 +45,8 @@
   <section class="page-hero">
     <div class="wrap">
       <span class="eyebrow">Custom DTF Orders</span>
-      <h1>Got an idea? <span class="gradient-text">Let's print it.</span></h1>
-      <p class="lead">Send over your art, a meme, a logo, a napkin sketch — we'll turn it into a DTF print on the garment of your choice. Fill out the form below and we'll follow up with pricing and a mockup.</p>
+      <h1>Have art? <span class="gradient-text">We'll print it.</span></h1>
+      <p class="lead">Got a finished design, logo, or image you want on apparel? Send us the file and we'll print it fresh using DTF transfer on the garment of your choice — we'll make small technical adjustments for print clarity and sizing, but the design is all you. Fill out the form below and we'll follow up with pricing and a preview.</p>
     </div>
   </section>
 
@@ -57,7 +60,7 @@
         <div class="step">
           <span class="num">1</span>
           <h3>Send Your Design</h3>
-          <p>Fill out the form with your idea and garment details. Have reference art? Attach it to the email that opens.</p>
+          <p>Fill out the form and attach your finished artwork, logo, or image file to the email that opens.</p>
         </div>
         <div class="step">
           <span class="num">2</span>
@@ -66,8 +69,8 @@
         </div>
         <div class="step">
           <span class="num">3</span>
-          <h3>Approve The Mockup</h3>
-          <p>We send a digital mockup before anything gets printed — nothing goes to press without your OK.</p>
+          <h3>Approve The Preview</h3>
+          <p>We send a preview showing your design placed on the garment before anything gets printed — nothing goes to press without your OK.</p>
         </div>
         <div class="step">
           <span class="num">4</span>
@@ -83,7 +86,11 @@
       <div class="section-head">
         <span class="eyebrow">Start Here</span>
         <h2>Custom order request</h2>
-        <p>This form opens a pre-filled email in your email app — nothing is stored or submitted on this site. Attach reference images before hitting send.</p>
+        <p>This form opens a pre-filled email in your email app — nothing is stored or submitted on this site. Attach your artwork file before hitting send.</p>
+      </div>
+
+      <div class="callout" style="margin-bottom:40px;">
+        <p style="margin:0; color: var(--pw-ink);"><strong>Heads up:</strong> we print designs, we don't create them from scratch. Come with your own finished art, logo, or image — we'll handle the technical print prep (clarity, sizing, and placement on the garment).</p>
       </div>
 
       <form class="form-card" id="custom-order-form">
@@ -105,8 +112,8 @@
         <label for="quantity">Quantity</label>
         <input type="text" id="quantity" name="quantity" placeholder="e.g. 1, or 12 for a group order">
 
-        <label for="details">Describe Your Design</label>
-        <textarea id="details" name="details" placeholder="Tell us about the design, placement (front/back/sleeve), colors, size of the shirt, and any reference links." required></textarea>
+        <label for="details">Print Details</label>
+        <textarea id="details" name="details" placeholder="Tell us about placement (front/back/sleeve), print size, and any color notes. Don't forget to attach your artwork file to the email that opens." required></textarea>
 
         <button type="submit" class="btn btn-primary" style="margin-top:24px; width:100%; justify-content:center;">Send Custom Order Request</button>
 
@@ -177,8 +184,8 @@
       `Email: ${email}\n` +
       `Garment: ${garment}\n` +
       `Quantity: ${quantity}\n\n` +
-      `Design details:\n${details}\n\n` +
-      `(Remember to attach any reference images before sending!)`;
+      `Print details:\n${details}\n\n` +
+      `(Remember to attach your artwork file before sending!)`;
 
     const to = window.PW_CONFIG.email;
     window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

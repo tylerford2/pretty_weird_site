@@ -137,7 +137,7 @@ p { margin: 0 0 1em; color: var(--pw-ink-soft); }
   padding: 14px 24px;
 }
 
-.nav-logo img { height: 46px; width: auto; }
+.nav-logo img { height: 54px; width: auto; }
 
 .nav-links {
   display: flex;
@@ -233,7 +233,7 @@ p { margin: 0 0 1em; color: var(--pw-ink-soft); }
   align-items: center;
 }
 
-.hero-logo { max-width: 560px; width: 100%; margin: 0 auto 8px; }
+.hero h1 { max-width: 780px; margin-bottom: 20px; }
 
 .hero p.lead {
   max-width: 560px;
@@ -429,7 +429,7 @@ textarea { resize: vertical; min-height: 120px; }
   margin-bottom: 40px;
 }
 
-.site-footer img { height: 44px; margin-bottom: 14px; filter: brightness(0) invert(1); }
+.site-footer img { height: 48px; width: auto; margin-bottom: 14px; filter: brightness(0) invert(1); }
 
 .site-footer h4 {
   font-family: var(--font-mono);

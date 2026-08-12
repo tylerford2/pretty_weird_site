@@ -13,6 +13,7 @@ window.PW_CONFIG = {
   email: 'hello@prettyweirdapparel.com',
 
   // TODO: fill in / remove any socials you don't use.
+  facebook: 'https://www.facebook.com/profile.php?id=61585029376531',
   instagram: '',
   tiktok: '',
 };
@@ -35,6 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-email-text]').forEach((el) => {
     el.textContent = cfg.email;
   });
+
+  const fbLink = document.querySelector('[data-facebook]');
+  if (fbLink) {
+    if (cfg.facebook) {
+      fbLink.setAttribute('href', cfg.facebook);
+    } else {
+      fbLink.style.display = 'none';
+    }
+  }
 
   const igLink = document.querySelector('[data-instagram]');
   if (igLink) {

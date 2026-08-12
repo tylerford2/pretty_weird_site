@@ -4,9 +4,8 @@
 // Every "Shop Now" / "Buy" / contact link on the site pulls from here.
 // ---------------------------------------------------------------------------
 window.PW_CONFIG = {
-  // TODO: replace with your storefront link once you pick a platform
-  // (Shopify, Etsy, Big Cartel, Square, etc.) — this powers every "Shop Now" / "Buy" button.
-  shopUrl: '#',
+  // Shopify storefront — powers every "Shop Now" / "Buy" button site-wide.
+  shopUrl: 'https://shop.prettyweirdapparel.com/',
 
   // TODO: replace with the real inbox you want custom-order requests sent to
   // (make sure it's actually set up / forwarding before this goes live).

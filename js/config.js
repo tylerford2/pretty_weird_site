@@ -7,6 +7,10 @@ window.PW_CONFIG = {
   // Shopify storefront — powers every "Shop Now" / "Buy" button site-wide.
   shopUrl: 'https://shop.prettyweirdapparel.com/',
 
+  // The specific Custom DTF Print Quote product — powers the "Request A
+  // Custom Quote" CTA on custom.html, separate from the general shopUrl above.
+  customQuoteUrl: 'https://shop.prettyweirdapparel.com/products/custom-dtf-print-quote-upload-your-design?variant=45953643642924',
+
   // Not a custom-domain inbox yet, so we never display this address as text —
   // "Email Us" buttons open a Gmail compose window instead (see data-email-link below).
   email: 'tyler.prettyweird@gmail.com',
@@ -22,6 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('[data-shop-link]').forEach((el) => {
     el.setAttribute('href', cfg.shopUrl);
+  });
+
+  document.querySelectorAll('[data-custom-quote-link]').forEach((el) => {
+    el.setAttribute('href', cfg.customQuoteUrl);
   });
 
   document.querySelectorAll('[data-email-link]').forEach((el) => {

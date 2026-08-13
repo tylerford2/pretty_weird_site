@@ -1,16 +1,17 @@
 # Pretty Weird Apparel Co. — Website
 
 A static marketing/funnel site for Pretty Weird Apparel Co. It showcases the
-brand and product catalog and sends visitors out to a third-party storefront
-for cart/checkout, and to email for custom DTF order requests. No backend,
-no data storage — plain HTML/CSS/JS, deployed on GitHub Pages.
+brand and product catalog and sends visitors out to Shopify for cart/checkout
+and custom order requests, with email as a fallback contact option. No
+backend, no data storage, no forms — plain HTML/CSS/JS, deployed on GitHub
+Pages.
 
 ## Structure
 
 ```
 index.html      Home
-shop.html       Pre-made product catalog (links out to storefront)
-custom.html     Custom DTF order request funnel (opens a pre-filled email)
+shop.html       Product catalog (links out to storefront)
+custom.html     Custom order info — links out to the Shopify quote-request listing
 about.html      Brand story / what is DTF printing
 contact.html    Contact + socials
 css/style.css   Shared design system
@@ -28,24 +29,26 @@ This is the only file you should need to touch regularly:
 
 ```js
 window.PW_CONFIG = {
-  shopUrl: '#',                          // your storefront link (see below)
-  email: 'hello@prettyweirdapparel.com', // real inbox for order requests
+  shopUrl: 'https://shop.prettyweirdapparel.com/', // Shopify storefront
+  email: 'tyler.prettyweird@gmail.com',            // not a custom-domain inbox yet —
+                                                    // never displayed as text, only used
+                                                    // to build "Email Us" Gmail-compose links
+  facebook: 'https://www.facebook.com/profile.php?id=61585029376531',
   instagram: '',
   tiktok: '',
 };
 ```
 
-Every "Shop Now" / "Buy" button on the site reads `shopUrl`. Every email
-link/button reads `email`. Update once, it updates everywhere.
+Every "Shop Now" / custom-order button on the site reads `shopUrl`. Every
+"Email Us" button reads `email` to build a Gmail compose link (opened in a
+new tab) — the address itself is never printed as visible text. Update
+either value once, it updates everywhere.
 
-### Picking a storefront platform
-You haven't picked one yet — when you do (Shopify, Etsy, Big Cartel, Square
-Online, etc.), just drop its store URL into `shopUrl`. Nothing else on this
-site needs to change. If you want individual products on `shop.html` to link
-to their own specific product pages instead of the general storefront, edit
-the `data-shop-link` attributes on those buttons in `shop.html` directly
-(swap `data-shop-link href="#"` for a real `href="https://..."` and drop the
-`data-shop-link` attribute so `config.js` doesn't overwrite it).
+If you want individual products on `shop.html` to link to their own specific
+Shopify product pages instead of the general storefront, edit the
+`data-shop-link` attributes on those buttons in `shop.html` directly (swap
+`data-shop-link href="#"` for a real `href="https://shop.prettyweirdapparel.com/products/..."`
+and drop the `data-shop-link` attribute so `config.js` doesn't overwrite it).
 
 ## 2. Deploying to GitHub Pages
 
@@ -114,22 +117,19 @@ Paste `https://prettyweirdapparel.com/` into Facebook's Sharing Debugger
 description preview renders correctly, and to force Facebook to re-scrape if
 you update the OG tags later.
 
-**Image note:** OG/social previews currently use the square sunburst logo
-(2000×2000). Facebook/Twitter prefer a 1200×630 (1.91:1) image — the square
-works fine but a purpose-made banner image will look better in link
-previews. Low priority, easy to swap into the `og:image` tags later.
-
 ## 5. Responsive / device testing
 
 The layout uses fluid type (`clamp()`), CSS grid with `auto-fit`, and a
 780px breakpoint for the mobile nav. Before launch, check at minimum:
 - Mobile portrait (~375px), tablet (~768px), and desktop (~1440px) widths
 - The hamburger menu opens/closes and closes after tapping a link
-- The custom-order form submit button on a real phone (opens mail app)
+- "Shop Now" / custom-order buttons and "Email Us" links open correctly on
+  a real phone (new tab to Shopify, new tab to Gmail compose)
 
 ## Notes
 
 - No customer data, form submissions, or payment info touches this site —
-  by design. The custom-order form builds a `mailto:` link client-side and
-  hands off to the visitor's own email app.
+  by design. There are no `<form>` elements anywhere; every action button
+  hands off to Shopify (cart, checkout, custom-print quote requests) or
+  opens a Gmail compose window in a new tab.
 - No build step. Just static files — edit and push.

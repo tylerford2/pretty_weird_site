@@ -7,9 +7,9 @@ window.PW_CONFIG = {
   // Shopify storefront — powers every "Shop Now" / "Buy" button site-wide.
   shopUrl: 'https://shop.prettyweirdapparel.com/',
 
-  // TODO: replace with the real inbox you want custom-order requests sent to
-  // (make sure it's actually set up / forwarding before this goes live).
-  email: 'hello@prettyweirdapparel.com',
+  // Not a custom-domain inbox yet, so we never display this address as text —
+  // "Email Us" buttons open a Gmail compose window instead (see data-email-link below).
+  email: 'tyler.prettyweird@gmail.com',
 
   // TODO: fill in / remove any socials you don't use.
   facebook: 'https://www.facebook.com/profile.php?id=61585029376531',
@@ -22,18 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('[data-shop-link]').forEach((el) => {
     el.setAttribute('href', cfg.shopUrl);
-    if (cfg.shopUrl === '#') el.setAttribute('title', 'Storefront link coming soon');
   });
 
-  document.querySelectorAll('[data-mailto]').forEach((el) => {
+  document.querySelectorAll('[data-email-link]').forEach((el) => {
     const subject = el.getAttribute('data-subject') || '';
-    const mailto = `mailto:${cfg.email}${subject ? `?subject=${encodeURIComponent(subject)}` : ''}`;
-    el.setAttribute('href', mailto);
-    el.textContent = el.textContent.replace('EMAIL_PLACEHOLDER', cfg.email);
-  });
-
-  document.querySelectorAll('[data-email-text]').forEach((el) => {
-    el.textContent = cfg.email;
+    const params = new URLSearchParams({ view: 'cm', fs: '1', to: cfg.email });
+    if (subject) params.set('su', subject);
+    el.setAttribute('href', `https://mail.google.com/mail/?${params.toString()}`);
+    el.setAttribute('target', '_blank');
+    el.setAttribute('rel', 'noopener');
   });
 
   const fbLink = document.querySelector('[data-facebook]');

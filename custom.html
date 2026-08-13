@@ -46,7 +46,7 @@
     <div class="wrap">
       <span class="eyebrow">Custom Print Orders</span>
       <h1>Have a design? <span class="gradient-text">We'll print it.</span></h1>
-      <p class="lead">Got a finished design, logo, or image you want on apparel? Send us the file and we'll print it fresh using DTF transfer on the garment of your choice — we'll make small technical adjustments for print clarity and sizing, but the design is all you. Fill out the form below and we'll follow up with pricing and a preview.</p>
+      <p class="lead">Got a finished design, logo, or image you want on apparel? Upload it on our shop and we'll print it fresh using DTF transfer on the garment of your choice — we'll make small technical adjustments for print clarity and sizing, but the design is all you. We'll follow up with pricing and a preview.</p>
     </div>
   </section>
 
@@ -60,7 +60,7 @@
         <div class="step">
           <span class="num">1</span>
           <h3>Send Your Design</h3>
-          <p>Fill out the form and attach your finished artwork, logo, or image file to the email that opens.</p>
+          <p>Head to our shop and upload your finished artwork, logo, or image file on the Custom Print Quote listing.</p>
         </div>
         <div class="step">
           <span class="num">2</span>
@@ -85,40 +85,17 @@
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">Start Here</span>
-        <h2>Custom order request</h2>
-        <p>This form opens a pre-filled email in your email app — nothing is stored or submitted on this site. Attach your artwork file before hitting send.</p>
+        <h2>Request your custom quote</h2>
+        <p>Custom quote requests happen on our shop — upload your design there and we'll follow up with pricing within 1–2 business days.</p>
       </div>
 
       <div class="callout" style="margin-bottom:40px;">
         <p style="margin:0; color: var(--pw-ink);"><strong>Heads up:</strong> we print designs, we don't create them from scratch. Come with your own finished art, logo, or image — we'll handle the technical print prep (clarity, sizing, and placement on the garment).</p>
       </div>
 
-      <form class="form-card" id="custom-order-form">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="garment">Garment Type</label>
-        <select id="garment" name="garment">
-          <option>T-Shirt</option>
-          <option>Crewneck / Sweatshirt</option>
-          <option>Hoodie</option>
-          <option>Tote Bag</option>
-          <option>Other (describe below)</option>
-        </select>
-
-        <label for="quantity">Quantity</label>
-        <input type="text" id="quantity" name="quantity" placeholder="e.g. 1, or 12 for a group order">
-
-        <label for="details">Print Details</label>
-        <textarea id="details" name="details" placeholder="Tell us about placement (front/back/sleeve), print size, and any color notes. Don't forget to attach your artwork file to the email that opens." required></textarea>
-
-        <button type="submit" class="btn btn-primary" style="margin-top:24px; width:100%; justify-content:center;">Send Custom Order Request</button>
-
-        <p class="form-note">Submitting opens your email app with these details filled in — attach any reference images there before sending. We typically reply within 1–2 business days.</p>
-      </form>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn btn-primary" data-shop-link href="#" target="_blank" rel="noopener">Request A Custom Quote</a>
+      </div>
     </div>
   </section>
 
@@ -153,7 +130,7 @@
       <div>
         <h4>Connect</h4>
         <ul>
-          <li><a data-mailto data-subject="Hey Pretty Weird!" href="#">EMAIL_PLACEHOLDER</a></li>
+          <li><a data-email-link data-subject="Hey Pretty Weird!" href="#" target="_blank" rel="noopener">Email Us</a></li>
           <li><a data-facebook href="#" target="_blank" rel="noopener">Facebook</a></li>
           <li><a data-instagram href="#" target="_blank" rel="noopener">Instagram</a></li>
           <li><a data-tiktok href="#" target="_blank" rel="noopener">TikTok</a></li>
@@ -169,27 +146,5 @@
 
 <script src="js/config.js"></script>
 <script src="js/main.js"></script>
-<script>
-  document.getElementById('custom-order-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const garment = document.getElementById('garment').value;
-    const quantity = document.getElementById('quantity').value || 'N/A';
-    const details = document.getElementById('details').value;
-
-    const subject = `Custom Order Request — ${name}`;
-    const body =
-      `Name: ${name}\n` +
-      `Email: ${email}\n` +
-      `Garment: ${garment}\n` +
-      `Quantity: ${quantity}\n\n` +
-      `Print details:\n${details}\n\n` +
-      `(Remember to attach your artwork file before sending!)`;
-
-    const to = window.PW_CONFIG.email;
-    window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
-</script>
 </body>
 </html>

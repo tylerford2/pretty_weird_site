@@ -365,54 +365,6 @@ section { padding: 70px 0; }
 .cta-band .btn-outline { border-color: var(--pw-cream); color: var(--pw-cream); }
 .cta-band .btn-outline:hover { box-shadow: 4px 4px 0 var(--pw-orange); }
 
-/* ---------- form ---------- */
-.form-card {
-  background: var(--pw-white);
-  border: 2px solid var(--pw-ink);
-  border-radius: var(--radius);
-  padding: 36px;
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 700;
-  margin-bottom: 6px;
-  margin-top: 20px;
-}
-
-label:first-child { margin-top: 0; }
-
-input, textarea, select {
-  width: 100%;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  padding: 12px 14px;
-  border: 2px solid var(--pw-line);
-  border-radius: 8px;
-  background: var(--pw-cream);
-  color: var(--pw-ink);
-}
-
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  border-color: var(--pw-purple);
-}
-
-textarea { resize: vertical; min-height: 120px; }
-
-.form-note {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--pw-ink-soft);
-  margin-top: 20px;
-}
-
 /* ---------- footer ---------- */
 .site-footer {
   background: var(--pw-ink);
